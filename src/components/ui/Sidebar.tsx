@@ -29,7 +29,7 @@ const Sidebar = ({ items, children }: SidebarProps) => {
   };
 
   return (
-    <div className="flex h-screen relative">
+    <div className="flex max-md:flex-col h-screen relative">
       {/* Sidebar */}
       <motion.aside
         className={cn(
@@ -41,12 +41,12 @@ const Sidebar = ({ items, children }: SidebarProps) => {
         initial={{ width: "4rem" }} // initial collapsed width
         animate={{ width: isSidebarExpanded ? "25%" : "4rem" }} // transition to expanded width
         transition={{ duration: 0.6 }}>
-        <ul className="flex flex-col items-start p-4 space-y-4">
+        <ul className="flex  md:flex-col items-start md:p-4 md:space-y-4">
           {items.map((item, index) => (
             <motion.li
               key={index}
               className={cn(
-                "flex items-center space-x-2 cursor-pointer hover:bg-gray-200/20 rounded-md p-2 transition-all duration-300 ease-in-out",
+                "flex items-center md:justify-center space-x-2 cursor-pointer hover:bg-gray-200/20 rounded-md p-2 transition-all duration-300 ease-in-out",
                 // If the item is active, add the active styles
                 activeItem === index || pathname === item.link
                   ? "bg-gray-200/20"
@@ -79,7 +79,7 @@ const Sidebar = ({ items, children }: SidebarProps) => {
       </motion.aside>
 
       {/* Main Content */}
-      <main className="flex-grow h-full p-6 bg-gray-100 rounded-tl-3xl rounded-bl-3xl relative z-10">
+      <main className="flex-grow h-full p-6 bg-gray-100 md:rounded-tl-3xl md:rounded-bl-3xl rounded-tl-xl rounded-tr-xl relative z-10">
         {children}
       </main>
     </div>
