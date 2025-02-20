@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import Groq from "groq-sdk";
+import { systemMessage } from "@/constants/systemPrompt";
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
@@ -17,7 +18,7 @@ export async function POST(req: NextRequest) {
 
     const response = await groq.chat.completions.create({
       messages: [
-        { role: "system", content: "You are a helpful assistant." },
+        { role: "system", content: systemMessage },
         ...newConversation,
       ],
       model: process.env.NEXT_PUBLIC_MODAL_TO_USE as unknown as string,

@@ -1,0 +1,166 @@
+/* ROOT CONTAINER */
+.assistant-message-root {
+    margin-bottom: 70px;
+    margin-top: 10px;
+}
+
+/* MESSAGE CONTAINER */
+.assistant-message {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    max-width: 80%;
+    border: 1px solid rgba(244, 244, 244, 0.45);
+    background-color: rgba(244, 244, 244, 0.15);
+    border-radius: 1.5rem;
+    padding: 12px;
+}
+
+/* INNER CONTENT */
+.assistant-message-container {
+    padding: 16px 24px;
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 100%;
+    word-wrap: break-word;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADINGS */
+.assistant-message-container h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.assistant-message-container h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.assistant-message-container h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* PARAGRAPHS */
+.assistant-message-container p {
+    font-size: 16px;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+/* CODE BLOCKS */
+.assistant-message-container pre {
+    background: #1e1e1e;
+    color: #ffffff;
+    padding: 12px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.5;
+    position: relative;
+    border: 1px solid #444;
+}
+
+/* CODE TEXT */
+.assistant-message-container pre code {
+    font-family: 'Courier New', monospace;
+    background: transparent;
+    padding: 0;
+    color: #f8f8f2;
+    white-space: pre-wrap;
+}
+
+/* INLINE CODE */
+.assistant-message-container code {
+    background: #ececec2d;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* COPY BUTTON FOR CODE BLOCK */
+.copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s ease-in-out;
+}
+
+.copy-button:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+/* BLOCKQUOTE */
+.assistant-message-container blockquote {
+    border-left: 4px solid #999;
+    padding-left: 15px;
+    margin-left: 0;
+    font-style: italic;
+    color: #444;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* LIST STYLES */
+.assistant-message-container ul,
+.assistant-message-container ol {
+    padding-left: 20px;
+    margin-bottom: 12px;
+}
+
+.assistant-message-container ul li {
+    list-style-type: disc;
+    margin-bottom: 5px;
+}
+
+.assistant-message-container ol li {
+    list-style-type: decimal;
+    margin-bottom: 5px;
+}
+
+/* LINK STYLING */
+.assistant-message-container a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.assistant-message-container a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE STYLING */
+.assistant-message-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+}
+
+.assistant-message-container th {
+    background: #ddd;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.assistant-message-container td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}

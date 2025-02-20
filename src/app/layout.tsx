@@ -1,18 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import Sidebar from "@/components/ui/Sidebar";
 import { sidebarItems } from "@/constants/sidebar";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "AI Jira Ticket Creator",
@@ -49,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased max-h-screen overflow-hidden`}>
+        className={`${inter.className} antialiased max-h-screen overflow-hidden`}>
         <Sidebar items={sidebarItems}>{children}</Sidebar>
         {/* {children} */}
       </body>
