@@ -45,14 +45,14 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
   };
 
   return (
-    <div className="relative grow overflow-hidden">
+    <div className="relative grow overflow-hidden max-sm:px-1">
       <div
         ref={chatContainerRef}
         className={clsx(
-          "space-y-4 overflow-y-auto h-full p-2 pt-5",
-          "[&::-webkit-scrollbar]:w-1",
-          " [&::-webkit-scrollbar-track]:bg-gray-100/10 [&::-webkit-scrollbar-track]:rounded-xl",
-          " [&::-webkit-scrollbar-thumb]:bg-gray-300/20 [&::-webkit-scrollbar-thumb]:rounded-xl"
+          "space-y-4 overflow-y-auto h-full md:p-2 pt-5",
+          "sm:[&::-webkit-scrollbar]:w-1",
+          " sm:[&::-webkit-scrollbar-track]:bg-gray-100/10 sm:[&::-webkit-scrollbar-track]:rounded-xl",
+          " sm:[&::-webkit-scrollbar-thumb]:bg-gray-300/20 sm:[&::-webkit-scrollbar-thumb]:rounded-xl"
         )}
         onScroll={handleScroll}>
         <div className="md:max-w-7xl md:mx-auto">
@@ -69,7 +69,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
               {message.role === "assistant" ? (
                 <AssistantMessage content={message.content} />
               ) : (
-                <div className="inline-block bg-gray-400/40 text-white text-sm max-w-[40%] w-fit py-3 px-6 rounded-3xl">
+                <div className="inline-block bg-gray-400/40 text-white md:text-sm text-xs md:max-w-[40%] max-w-[70%]] w-fit py-3 px-6 rounded-3xl">
                   {message.content}
                 </div>
               )}

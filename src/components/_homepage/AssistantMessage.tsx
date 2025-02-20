@@ -74,8 +74,12 @@ const AssistantMessage: React.FC<AssistantMessageProps> = ({ content }) => {
     });
   };
   return (
-    <div className={clsx(montserrat.className, "assistant-message-root")}>
-      <fieldset className="assistant-message">
+    <div
+      className={clsx(
+        montserrat.className,
+        "assistant-message-root w-max max-md:w-full"
+      )}>
+      <fieldset className="assistant-message md:px-3 w-full">
         <legend className="ml-6 bg-[#2c2c2c] border border-solid border-gray-300/50 rounded-full px-2 flex items-center space-x-1">
           <IconRobot size={16} />
           <IconAi />

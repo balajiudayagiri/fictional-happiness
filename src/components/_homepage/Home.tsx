@@ -33,6 +33,9 @@ export default function Home() {
     ];
     setChatHistory(newConversation);
 
+    // Clear the textarea immediately after submit
+    setTicketDetails("");
+
     try {
       const response = await fetch("/api/generate-ticket", {
         method: "POST",
@@ -80,7 +83,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="w-full h-full pl-6 flex flex-col"
+      className="w-full max-md:h-[calc(100vh-40px)] h-full md:pl-6 flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
@@ -108,17 +111,32 @@ export default function Home() {
       <ChatHistory chatHistory={chatHistory} />
 
       {/* User Input */}
-      <motion.div
-        className="relative w-full border border-solid border-gray-500 flex items-end rounded-3xl p-2 mr-6 md:max-w-7xl md:mx-auto"
+      <motion.fieldset
+        className="relative w-full border border-solid border-gray-500 flex items-end rounded-3xl p-2 mr-6 mb-4 md:max-w-7xl md:mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3 }}>
+        <legend className="ml-6 bg-background border border-solid border-gray-300/50 rounded-full px-2">
+          <p className="text-[10px] text-gray-500">
+            current modal in usage{" "}
+            <span className="font-semibold text-indigo-400">
+              {modal?.toString()}
+            </span>
+          </p>
+        </legend>
         <textarea
           value={ticketDetails}
           onChange={(e) => setTicketDetails(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+              e.preventDefault(); // Prevents newline in textarea
+              handleSubmit();
+            }
+          }}
           placeholder="Describe the issue or task..."
-          className="w-full bg-transparent h-24 grow p-2 text-md border-none outline-none  focus:outline-none  resize-none transition-all duration-300 ease-in-out"
+          className="w-full bg-transparent h-24 grow p-2 text-md border-none outline-none focus:outline-none resize-none transition-all duration-300 ease-in-out"
         />
+
         {/* Create Ticket Button */}
         <button
           onClick={handleSubmit}
@@ -132,9 +150,9 @@ export default function Home() {
             <IconSend2 size={20} />
           )}
         </button>
-      </motion.div>
+      </motion.fieldset>
 
-      {/* Powered by AI */}
+      {/* Powered by AI
       <div className="text-center">
         <p className="text-sm text-gray-500">
           Powered by <span className="font-semibold text-indigo-400">AI</span>{" "}
@@ -143,7 +161,7 @@ export default function Home() {
             {modal?.toString()}
           </span>
         </p>
-      </div>
+      </div> */}
     </motion.div>
   );
 }
