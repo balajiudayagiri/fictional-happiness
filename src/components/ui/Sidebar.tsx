@@ -96,7 +96,7 @@ const Sidebar = ({ items, children }: SidebarProps) => {
       {/* Main Content */}
       <div
         className={clsx(
-          "flex-grow h-full bg-background border border-solid border-gray-200/20",
+          "flex-grow h-full bg-background border border-solid border-gray-200/20 overflow-hidden",
           " md:rounded-tl-2xl md:rounded-bl-2xl rounded-tl-xl max-md:rounded-tr-xl relative z-10",
           "shadow-xl"
         )}>

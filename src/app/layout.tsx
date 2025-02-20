@@ -7,29 +7,33 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "AI Jira Ticket Creator",
+  title: "Cortex AI - Advanced AI Integration Platform",
   description:
-    "Generate Jira tickets effortlessly with AI. Describe your issue and let AI create the perfect ticket for you.",
+    "Cortex AI empowers users to seamlessly integrate and manage their own AI models and API keys. Designed for self-service, Cortex AI lets you bring your own models and API keys to create customized AI solutions effortlessly.",
+
   openGraph: {
-    title: "AI Jira Ticket Creator",
-    description: "Generate Jira tickets effortlessly with AI.",
-    url: "https://yourwebsite.com",
-    siteName: "AI Jira Ticket Creator",
+    title: "Cortex AI | Advanced AI, Simplified",
+    description:
+      "Unlock the potential of your AI models with Cortex AI. Easily integrate your own models and API keys to build and manage custom AI solutions without relying on third-party services.",
+    url: "https://cortexai.com",
+    siteName: "Cortex AI",
     images: [
       {
-        url: "/path/to/your/image.jpg",
+        url: "/path/to/your/logo.jpg",
         width: 1200,
         height: 630,
-        alt: "AI Jira Ticket Creator",
+        alt: "Cortex AI - Self-Service AI Integration Platform",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    site: "@yourTwitterHandle",
-    title: "AI Jira Ticket Creator",
-    description: "Generate Jira tickets effortlessly with AI.",
-    images: ["/path/to/your/image.jpg"],
+    site: "@CortexAI",
+    title: "Cortex AI | Advanced AI Platform",
+    description:
+      "Elevate your AI workflows with Cortex AI. Bring your own models and API keys to create, manage, and enhance custom AI solutions.",
+    images: ["/path/to/your/logo.jpg"],
   },
 };
 

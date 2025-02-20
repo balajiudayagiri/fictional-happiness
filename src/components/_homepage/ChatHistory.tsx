@@ -55,7 +55,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
           " sm:[&::-webkit-scrollbar-thumb]:bg-gray-300/20 sm:[&::-webkit-scrollbar-thumb]:rounded-xl"
         )}
         onScroll={handleScroll}>
-        <div className="md:max-w-7xl md:mx-auto">
+        <div className="md:max-w-7xl md:mx-auto pt-6">
           {chatHistory.map((message, index) => (
             <motion.div
               key={index}
@@ -69,7 +69,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
               {message.role === "assistant" ? (
                 <AssistantMessage content={message.content} />
               ) : (
-                <div className="inline-block bg-gray-400/40 text-white md:text-sm text-xs md:max-w-[40%] max-w-[70%]] w-fit py-3 px-6 rounded-3xl">
+                <div className="inline-block text-left bg-gray-600/10 text-white md:text-sm text-xs md:max-w-[40%] max-w-[70%]] w-fit py-3 px-6 rounded-3xl">
                   {message.content}
                 </div>
               )}

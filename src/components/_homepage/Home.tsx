@@ -3,17 +3,24 @@ import { IconLoader3, IconSend2 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import ChatHistory from "./ChatHistory"; // Import the new ChatHistory component
+import clsx from "clsx";
 
 interface ChatMessage {
   role: "user" | "assistant";
   content: string;
 }
-const modal = process.env.NEXT_PUBLIC_MODAL_TO_USE as unknown as string;
 
 export default function Home() {
   const [ticketDetails, setTicketDetails] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
+
+  // Retrieve GROQ_API_KEY and MODAL_TO_USE from localStorage
+  const groqApiKey =
+    localStorage.getItem("GROQ_API_KEY") || process.env.GROQ_API_KEY;
+  const modal =
+    localStorage.getItem("MODAL_TO_USE") ||
+    process.env.NEXT_PUBLIC_MODAL_TO_USE;
 
   useEffect(() => {
     const savedChat = localStorage.getItem("chatHistory");
@@ -45,6 +52,8 @@ export default function Home() {
         body: JSON.stringify({
           projectDescription: ticketDetails,
           conversation: newConversation,
+          groqApiKey, // Send user API key if available
+          modal, // Send user modal if available
         }),
       });
 
@@ -83,7 +92,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="w-full max-md:h-[calc(100vh-40px)] h-full md:pl-6 flex flex-col"
+      className="w-full max-md:h-[calc(100vh-40px)] h-full flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
@@ -94,7 +103,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}>
-            Create a Jira Ticket Using AI
+            AInity
           </motion.h2>
 
           <motion.p
@@ -102,7 +111,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}>
-            Describe the issue, and let AI handle the ticket creation.
+            Take control of your AI integration with AInity.
           </motion.p>
         </div>
       )}
@@ -125,6 +134,12 @@ export default function Home() {
           </p>
         </legend>
         <textarea
+          className={clsx(
+            "sm:[&::-webkit-scrollbar]:w-1",
+            " sm:[&::-webkit-scrollbar-track]:bg-gray-100/10 sm:[&::-webkit-scrollbar-track]:rounded-xl",
+            " sm:[&::-webkit-scrollbar-thumb]:bg-gray-300/20 sm:[&::-webkit-scrollbar-thumb]:rounded-xl",
+            "w-full bg-transparent h-24 grow p-2 text-md border-none outline-none focus:outline-none resize-none transition-all duration-300 ease-in-out"
+          )}
           value={ticketDetails}
           onChange={(e) => setTicketDetails(e.target.value)}
           onKeyDown={(e) => {
@@ -134,7 +149,6 @@ export default function Home() {
             }
           }}
           placeholder="Describe the issue or task..."
-          className="w-full bg-transparent h-24 grow p-2 text-md border-none outline-none focus:outline-none resize-none transition-all duration-300 ease-in-out"
         />
 
         {/* Create Ticket Button */}
@@ -151,17 +165,6 @@ export default function Home() {
           )}
         </button>
       </motion.fieldset>
-
-      {/* Powered by AI
-      <div className="text-center">
-        <p className="text-sm text-gray-500">
-          Powered by <span className="font-semibold text-indigo-400">AI</span>{" "}
-          current modal in usage{" "}
-          <span className="font-semibold text-indigo-400">
-            {modal?.toString()}
-          </span>
-        </p>
-      </div> */}
     </motion.div>
   );
 }

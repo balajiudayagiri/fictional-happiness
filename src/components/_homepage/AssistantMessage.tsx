@@ -40,7 +40,7 @@ const CodeBlock: React.FC<CodeProps> = ({
   };
 
   return !inline && match ? (
-    <div className="relative">
+    <div className="relative [& pre]:whitespace-pre-wrap">
       <button onClick={handleCopy} className="copy-button">
         {copied ? "Copied!" : <IconClipboard size={14} />}
       </button>
@@ -48,13 +48,16 @@ const CodeBlock: React.FC<CodeProps> = ({
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         style={vscDarkPlus as unknown as any} // Ensuring correct style type
         language={match[1]}
+        codeTagProps={{ style: { whiteSpace: "pre-wrap", width: "100%" } }}
         PreTag="div"
         {...props}>
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     </div>
   ) : (
-    <code className={clsx("rounded-xl", className)} {...props}>
+    <code
+      className={clsx("rounded-xl whitespace-pre-wrap ", className)}
+      {...props}>
       {children}
     </code>
   );
@@ -74,13 +77,9 @@ const AssistantMessage: React.FC<AssistantMessageProps> = ({ content }) => {
     });
   };
   return (
-    <div
-      className={clsx(
-        montserrat.className,
-        "assistant-message-root w-max max-md:w-full"
-      )}>
-      <fieldset className="assistant-message md:px-3 w-full">
-        <legend className="ml-6 bg-[#2c2c2c] border border-solid border-gray-300/50 rounded-full px-2 flex items-center space-x-1">
+    <div className={clsx(montserrat.className, "assistant-message-root")}>
+      <fieldset className="assistant-message w-fit">
+        <legend className=" bg-[#2c2c2c] border border-solid border-gray-300/50 rounded-full px-2 flex items-center space-x-1">
           <IconRobot size={16} />
           <IconAi />
         </legend>

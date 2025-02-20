@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import Groq from "groq-sdk";
 import { systemMessage } from "@/constants/systemPrompt";
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 export async function POST(req: NextRequest) {
   try {
-    const { projectDescription, conversation } = await req.json();
+    const { projectDescription, conversation, groqApiKey, modal } =
+      await req.json();
+
+    // Use the provided GROQ_API_KEY or fallback to the environment variable
+    const groqInstance = new Groq({
+      apiKey: groqApiKey || process.env.GROQ_API_KEY,
+    });
 
     const newConversation = [
       ...conversation,
@@ -16,12 +20,12 @@ export async function POST(req: NextRequest) {
       },
     ];
 
-    const response = await groq.chat.completions.create({
+    const response = await groqInstance.chat.completions.create({
       messages: [
         { role: "system", content: systemMessage },
         ...newConversation,
       ],
-      model: process.env.NEXT_PUBLIC_MODAL_TO_USE as unknown as string,
+      model: modal || process.env.NEXT_PUBLIC_MODAL_TO_USE, // Use the provided modal or fallback
       temperature: 0.7,
       max_tokens: 1024,
       top_p: 1,
@@ -48,9 +52,9 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Error generating JSDocs:", error);
+    console.error("Error generating:", error);
     return NextResponse.json(
-      { message: "Failed to generate JSDocs" },
+      { message: "Failed to generate" },
       { status: 500 }
     );
   }
