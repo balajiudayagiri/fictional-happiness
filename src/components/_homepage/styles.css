@@ -13,12 +13,12 @@
     border: 1px solid rgba(244, 244, 244, 0.45);
     background-color: rgba(244, 244, 244, 0.15);
     border-radius: 1.5rem;
-    padding: 12px;
+    padding: 0px 14px;
 }
 
 /* INNER CONTENT */
 .assistant-message-container {
-    padding: 16px 24px;
+    padding: 8px;
     border-radius: 10px;
     font-size: 16px;
     line-height: 1.6;
@@ -31,25 +31,25 @@
 .assistant-message-container h1 {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .assistant-message-container h2 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .assistant-message-container h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
 /* PARAGRAPHS */
 .assistant-message-container p {
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-size: 14px;
+    margin-bottom: 14px;
     line-height: 1.6;
 }
 
@@ -57,7 +57,7 @@
 .assistant-message-container pre {
     background: #1e1e1e;
     color: #ffffff;
-    padding: 12px;
+    padding: 14px;
     border-radius: 8px;
     overflow-x: auto;
     font-size: 14px;
@@ -97,7 +97,7 @@
     padding: 5px 8px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 14px;
     transition: all 0.2s ease-in-out;
 }
 
@@ -121,7 +121,8 @@
 .assistant-message-container ul,
 .assistant-message-container ol {
     padding-left: 20px;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    font-size: 14px;
 }
 
 .assistant-message-container ul li {
@@ -149,7 +150,7 @@
 .assistant-message-container table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .assistant-message-container th {

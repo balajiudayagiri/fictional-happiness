@@ -69,7 +69,7 @@ const ChatHistory: React.FC<ChatHistoryProps> = ({ chatHistory }) => {
               {message.role === "assistant" ? (
                 <AssistantMessage content={message.content} />
               ) : (
-                <div className="inline-block bg-gray-400/40 text-white max-w-[40%] w-fit py-3 px-6 rounded-3xl">
+                <div className="inline-block bg-gray-400/40 text-white text-sm max-w-[40%] w-fit py-3 px-6 rounded-3xl">
                   {message.content}
                 </div>
               )}

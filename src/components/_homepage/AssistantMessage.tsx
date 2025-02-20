@@ -5,7 +5,12 @@ import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import clsx from "clsx";
-import { IconCheck, IconClipboard } from "@tabler/icons-react";
+import {
+  IconAi,
+  IconCheck,
+  IconClipboard,
+  IconRobot,
+} from "@tabler/icons-react";
 import "./styles.css"; // Ensure this is correctly linked
 import { Montserrat } from "next/font/google";
 
@@ -71,8 +76,9 @@ const AssistantMessage: React.FC<AssistantMessageProps> = ({ content }) => {
   return (
     <div className={clsx(montserrat.className, "assistant-message-root")}>
       <fieldset className="assistant-message">
-        <legend className="ml-6 bg-[#2c2c2c] border border-solid border-gray-300/50 rounded-full px-2">
-          AI
+        <legend className="ml-6 bg-[#2c2c2c] border border-solid border-gray-300/50 rounded-full px-2 flex items-center space-x-1">
+          <IconRobot size={16} />
+          <IconAi />
         </legend>
         <div className="assistant-message-container">
           <ReactMarkdown

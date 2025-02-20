@@ -80,7 +80,7 @@ export default function Home() {
 
   return (
     <motion.div
-      className="w-full h-full pl-6 space-y-2 flex flex-col"
+      className="w-full h-full pl-6 flex flex-col"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}>
@@ -109,7 +109,7 @@ export default function Home() {
 
       {/* User Input */}
       <motion.div
-        className="relative w-full border border-solid border-gray-500 flex items-end rounded-3xl p-2 md:max-w-7xl md:mx-auto"
+        className="relative w-full border border-solid border-gray-500 flex items-end rounded-3xl p-2 mr-6 md:max-w-7xl md:mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.3 }}>
